@@ -12,4 +12,10 @@ public class MainController {
     public String index() {
         return "Hello World";
     }
+
+    @RequestMapping("/plus")
+    @ResponseBody
+    public int plus(int a,int b) {
+        return a+b;
+    }
 }
