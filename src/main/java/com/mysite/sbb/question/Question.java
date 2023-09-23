@@ -1,7 +1,9 @@
 package com.mysite.sbb.question;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import com.mysite.sbb.answer.Answer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,4 +25,7 @@ public class Question {
     private String content;
 
     private LocalDateTime createDate;
+
+    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
+    private List<Answer> answerList;
 }
