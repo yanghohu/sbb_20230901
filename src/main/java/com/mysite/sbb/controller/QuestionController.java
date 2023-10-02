@@ -1,7 +1,6 @@
 package com.mysite.sbb.controller;
 
 import com.mysite.sbb.question.Question;
-import com.mysite.sbb.question.QuestionRepository;
 import com.mysite.sbb.question.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
-// 컨트롤러는 Repository가 있느느지 몰라야 한다.
+// 컨트롤러는 Repository가 있는지 몰라야 한다.
 // 서비스는 브라우저라는 것이 이 세상에 존재하는지 몰라야 한다.
 // 리포지터리는 서비스가 이 세상에 있는지 몰라야 한다.
 // 서비스는 컨트롤러를 몰라야 한다.
