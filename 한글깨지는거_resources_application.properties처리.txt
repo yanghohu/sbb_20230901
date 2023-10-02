@@ -1,0 +1,6 @@
+인텔리제이 -> settings -> File Encoding
+
+Project Encoding -> Utf-8 로 변경
+
+밑에
+Default encoding for Properties files -> Utf-8 로 변경
