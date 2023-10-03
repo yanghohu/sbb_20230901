@@ -7,11 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/question")
 // 컨트롤러는 Repository가 있는지 몰라야 한다.
 // 서비스는 브라우저라는 것이 이 세상에 존재하는지 몰라야 한다.
 // 리포지터리는 서비스가 이 세상에 있는지 몰라야 한다.
@@ -25,14 +27,14 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping("/question/list")
+    @GetMapping("/list")
     public String list(Model model) {
         List<Question> questionList = questionService.getList();
         model.addAttribute("questionList",questionList);
         return "question_list";
     }
 
-    @GetMapping(value = "/question/detail/{id}")
+    @GetMapping(value = "/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id) {
         Question question = questionService.getQuestion(id);
         model.addAttribute("question",question);
