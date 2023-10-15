@@ -4,6 +4,7 @@ import com.mysite.sbb.question.Question;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 import lombok.Getter;
 import lombok.Setter;

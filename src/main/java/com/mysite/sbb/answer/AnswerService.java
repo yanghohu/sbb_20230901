@@ -1,5 +1,6 @@
 package com.mysite.sbb.answer;
 
+import com.mysite.sbb.DataNotFoundException;
 import com.mysite.sbb.question.Question;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,10 @@ public class AnswerService {
         Answer answer = new Answer();
         answer.setContent(content);
         answer.setCreDateTime(LocalDateTime.now());
-        answer.setQuestion(question);
+        question.addAnswer(answer);
         answerRepository.save(answer);
+    }
+    public Answer getAnswer(Integer id) {
+        return answerRepository.findById(id).orElseThrow(() -> new DataNotFoundException("answer not found"));
     }
 }
