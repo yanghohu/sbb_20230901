@@ -1,29 +1,23 @@
-<table border="1">
-    <thead>
+<link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css">
+
+<div class="contrainer my-3">
+    <table class="table">
+        <thead class="table-dark">
         <tr>
-            <th>순번</th>
+            <th>번호</th>
             <th>제목</th>
             <th>작성일시</th>
         </tr>
-    </thead>
-    <tbody>
-    <tr th:each="question, loop : ${questionList}">
-        <!--
-        <td>
-            [[${loop.index}]]/[[${loop.size}]]
-        </td>
-        -->
-        <td>
-            [[${question.id}]]번
-        </td>
-        <td>
-            <!-- 타임리프에서 th:href 처럼 URL 주소를 나타낼때는 반드시 @{ 문자와 } 문자 사이에 입력해야 한다.
-                 그리고 URL 주소는 문자열 /question/detail/과 ${question.id} 값이 조합되어 /question/detail/${question.id}로 만들어졌다.
-                 이때 좌우에 | 문자없이 다음과 같이 사용하면 오류가 발생한다.
-             -->
-            <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"> </a>
-        </td>
-        <td th:text="|Date. ${#strings.substring(question.createDate,2,16)}"></td>
-    </tr>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <tr th:each="question, loop : ${questionList}">
+            <td th:text="${loop.count}"></td>
+            <td>
+                <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+            </td>
+            <td th:text="${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
